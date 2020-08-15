@@ -1,0 +1,28 @@
+{
+  "name": "league-team-discord-bot",
+  "version": "1.0.0",
+  "description": "A discord bot for League of Legends teams",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dateformat": "^3.0.3",
+    "discord.js": "^11.5.1",
+    "discord.js-commando": "^0.10.0",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.19",
+    "lol-champions": "^8.11.0",
+    "mongoose": "^5.7.12",
+    "mongoose-long": "^0.2.1",
+    "pretty-ms": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatricNox/League-of-legends-Discord-bot.git"
+  },
+  "author": "PatricNox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PatricNox/League-of-legends-Discord-bot/issues"
+  },
+  "homepage": "https://github.com/PatricNox/League-of-legends-Discord-bot#readme"
+}
