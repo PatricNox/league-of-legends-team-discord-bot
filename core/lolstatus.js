@@ -3,7 +3,6 @@ const axios = require('axios');
 const { RichEmbed } = require("discord.js")
 
 module.exports.checkServerStatus = function (client, channelId) { 
-    console.log("checking server status...");
     let url = `https://eun1.api.riotgames.com/lol/status/v3/shard-data?api_key=${process.env.RIOT_API_KEY}`;
     axios.get(url)
     .then(function (data) {
@@ -24,7 +23,8 @@ module.exports.checkServerStatus = function (client, channelId) {
             newIds = checkResponse(client, data, array, channelId);
             if (newIds.length > 0) {
                 newIds.forEach(id => {
-                    console.log("adding "+id);
+                    // TODO - Log to #botlogs channel
+                    console.log("New LoL server status detected: " + id);
                     
                     ServerStatus.create({
                         incidentId: id
@@ -36,10 +36,8 @@ module.exports.checkServerStatus = function (client, channelId) {
         return 
     })
     .catch(function (error) {
-        // handle error
-        client.channels.get(channelId).send("error");
+        // TODO - Log to #botlogs channel
         console.log(error);
-        
         return
     })
 };
