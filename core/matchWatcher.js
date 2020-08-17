@@ -1,4 +1,3 @@
-const fs = require("fs");
 const axios = require('axios');
 const { RichEmbed } = require("discord.js")
 const champions = require('lol-champions')
@@ -27,6 +26,8 @@ module.exports.watchGames = function (client, channelId)  {
                         let url = `https://eun1.api.riotgames.com/lol/match/v4/matches/${match.id}?api_key=${process.env.RIOT_API_KEY}`;
                         axios.get(url)
                         .then(function (response) {
+                            console.log("New match detected: " + record.summonerName);
+
                             // Loop through every player in match.
                             let participantId;
                             let summonerName;
@@ -106,7 +107,6 @@ module.exports.watchGames = function (client, channelId)  {
                             const embed = new RichEmbed()
                                 .setTitle(`${summonerName} with a ${victory}`)
                                 .setAuthor(match.queue, 'https://lutris.net/media/games/icons/leagueoflegends-icon.png')
-                                // .setImage(champion_avatar) 
                                 .setTimestamp()
                                 .setThumbnail(champion_avatar)
                                 .setColor(vcolor)
@@ -168,9 +168,7 @@ module.exports.watchGames = function (client, channelId)  {
                             });
                         })
                         .catch(function (error) {
-                            client.channels.get(channelId).send("error");
-                            console.log(error);
-                            return array;
+                            // TODO - Log to #botlogs channel
                         })                        
                     });
                 });
@@ -188,10 +186,7 @@ function getSummonerAccountID(client, summonerName, channelId) {
         return response.data.accountId;    
     })
     .catch(function (error) {
-        // handle error
-        client.channels.get(channelId).send("error");
-        console.log(error);
-        return array;
+        // TODO - Log to #botlogs channel
     })              
 }
 
@@ -230,10 +225,6 @@ function getLatestMatchFrom(client, summonerId, channelId) {
         return array;
     })
     .catch(function (error) {
-        // handle error
-        client.channels.get(channelId).send("error");
-        console.log(error);
-        
-        return false;
+        // TODO - Log to #botlogs channel
     })
 }
