@@ -11,7 +11,7 @@
     "dotenv": "^8.2.0",
     "lodash": "^4.17.19",
     "lol-champions": "^8.11.0",
-    "mongoose": "^5.7.12",
+    "mongoose": "^5.10.0",
     "mongoose-long": "^0.2.1",
     "pretty-ms": "^5.0.0"
   },
