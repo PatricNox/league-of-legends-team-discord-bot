@@ -4,7 +4,7 @@
   "description": "A discord bot for League of Legends teams",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "dateformat": "^3.0.3",
     "discord.js": "^11.5.1",
     "discord.js-commando": "^0.10.0",
